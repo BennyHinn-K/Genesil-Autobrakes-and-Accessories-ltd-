@@ -13,11 +13,11 @@ export default function Footer() {
                 <span className="text-primary font-bold text-xl">G</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-black">Genesil</h3>
-                <p className="text-sm text-black">Autobrake & Accessories</p>
+                <h3 className="text-xl font-bold text-black dark:!text-black">Genesil</h3>
+                <p className="text-sm text-black dark:!text-black">Autobrake & Accessories</p>
               </div>
             </div>
-            <p className="text-black mb-6 leading-relaxed">
+            <p className="text-black dark:!text-black mb-6 leading-relaxed">
               Your trusted partner for genuine automotive spare parts. Real parts, real performance, no excuses.
             </p>
             <div className="flex space-x-4">
@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-black">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 text-black dark:!text-black">Quick Links</h4>
             <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-black dark:!text-black hover:text-primary-foreground transition-colors">
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Product Categories */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-black">Product Categories</h4>
+            <h4 className="text-lg font-semibold mb-6 text-black dark:!text-black">Product Categories</h4>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -121,7 +121,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-black">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-6 text-black dark:!text-black">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-black dark:!text-black mt-1 flex-shrink-0" />

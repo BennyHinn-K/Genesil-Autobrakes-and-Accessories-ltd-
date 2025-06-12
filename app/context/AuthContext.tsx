@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      // Check for admin credentials - using the environment variable password
+      // Check for admin credentials
       if (password === "K@ranJA") {
         const adminUser: User = {
           id: "admin",
@@ -49,19 +49,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       // Regular user login (simplified for demo)
-      if (password.length >= 6) {
-        const regularUser: User = {
-          id: Date.now().toString(),
-          name: email.split("@")[0],
-          email: email,
-          isAdmin: false,
-        }
-        setUser(regularUser)
-        localStorage.setItem("genesil_user", JSON.stringify(regularUser))
-        return true
+      const regularUser: User = {
+        id: Date.now().toString(),
+        name: email.split("@")[0],
+        email: email,
+        isAdmin: false,
       }
-
-      return false
+      setUser(regularUser)
+      localStorage.setItem("genesil_user", JSON.stringify(regularUser))
+      return true
     } catch (error) {
       console.error("Login error:", error)
       return false

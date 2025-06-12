@@ -125,3 +125,39 @@
 .form-input:focus {
   @apply shadow-lg transform scale-[1.02];
 }
+
+/* Dark mode improvements */
+.dark {
+  --background: 0 0% 0%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
+}
+
+/* Ensure white text in dark mode cards */
+.dark .text-card-foreground {
+  color: hsl(var(--card-foreground)) !important;
+}
+
+.dark .bg-card {
+  background-color: hsl(var(--card)) !important;
+}
+
+/* Dark mode specific overrides */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark p,
+.dark span,
+.dark div {
+  color: hsl(var(--foreground));
+}
+
+.dark .text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+}

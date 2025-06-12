@@ -10,11 +10,10 @@ import { ThemeProvider } from "./context/ThemeContext"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Genesil Autospares & Accessories Ltd - Premium Auto Parts Kenya",
+  title: "Genesil Autospares & Accessories Ltd - Premium Auto Parts",
   description:
-    "Leading supplier of genuine automotive spare parts and accessories in Kenya. Professional brake systems, parts with M-Pesa payment. Located in Kirinyaga Road, Nairobi.",
-  keywords:
-    "autospares, car parts, automotive accessories, brake systems, spare parts, Kenya, M-Pesa, Nairobi, genuine parts",
+    "Leading supplier of high-quality automotive spare parts and accessories in Kenya. Professional parts with M-Pesa payment integration.",
+  keywords: "autospares, car parts, automotive accessories, brake systems, spare parts, Kenya, M-Pesa",
     generator: 'v0.dev'
 }
 

@@ -39,36 +39,6 @@ export default function CheckoutPage() {
 
   const handleDetailsSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Validate required fields
-    if (
-      !formData.firstName.trim() ||
-      !formData.lastName.trim() ||
-      !formData.email.trim() ||
-      !formData.phone.trim() ||
-      !formData.address.trim() ||
-      !formData.city.trim() ||
-      !formData.county.trim()
-    ) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      })
-      return
-    }
-
-    // Validate phone number format
-    const phoneRegex = /^(\+254|254|0)[17]\d{8}$/
-    if (!phoneRegex.test(formData.phone)) {
-      toast({
-        title: "Invalid Phone Number",
-        description: "Please enter a valid Kenyan phone number (e.g., 0712345678).",
-        variant: "destructive",
-      })
-      return
-    }
-
     setPaymentStep("payment")
   }
 

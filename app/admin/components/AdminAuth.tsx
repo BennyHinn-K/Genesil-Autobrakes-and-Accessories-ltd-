@@ -87,6 +87,10 @@ export default function AdminAuth({ onAuthenticated }: AdminAuthProps) {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Enter password"
+                  style={{
+                    fontFamily: showPassword ? "inherit" : "text-security-disc, -webkit-text-security-disc, monospace",
+                    WebkitTextSecurity: showPassword ? "none" : "disc",
+                  }}
                 />
                 <button
                   type="button"

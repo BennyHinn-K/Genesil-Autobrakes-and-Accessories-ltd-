@@ -126,6 +126,10 @@ export default function AuthPage() {
                   onChange={handleInputChange}
                   className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   placeholder="Enter your password"
+                  style={{
+                    fontFamily: showPassword ? "inherit" : "text-security-disc, -webkit-text-security-disc, monospace",
+                    WebkitTextSecurity: showPassword ? "none" : "disc",
+                  }}
                 />
                 <button
                   type="button"

@@ -16,11 +16,11 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-black">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-black dark:!text-black">
               Premium Auto
-              <span className="text-black"> Spare Parts</span>
+              <span className="!text-black"> Spare Parts</span>
             </h1>
-            <p className="text-xl mb-8 leading-relaxed text-black">
+            <p className="text-xl mb-8 leading-relaxed text-black dark:!text-black">
               Your trusted partner for high-quality automotive spare parts and accessories. Professional-grade parts for
               all vehicle types with guaranteed performance and M-Pesa payment convenience.
             </p>
@@ -38,7 +38,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-black text-black hover:bg-black hover:text-yellow-400 px-8 py-4 text-lg font-semibold transition-all duration-300"
+                  className="border-2 border-black text-black dark:!text-white hover:bg-black hover:text-yellow-400 dark:hover:text-yellow-400 px-8 py-4 text-lg font-semibold transition-all duration-300"
                 >
                   Get Quote
                 </Button>
@@ -48,24 +48,24 @@ export default function Hero() {
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="flex items-center space-x-3">
-                <Shield className="h-8 w-8 text-black" />
+                <Shield className="h-8 w-8 text-black dark:!text-black" />
                 <div>
-                  <h3 className="font-semibold text-black">Quality Assured</h3>
-                  <p className="text-sm text-black">Certified parts</p>
+                  <h3 className="font-semibold text-black dark:!text-black">Quality Assured</h3>
+                  <p className="text-sm text-black dark:!text-black">Certified parts</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Wrench className="h-8 w-8 text-black" />
+                <Wrench className="h-8 w-8 text-black dark:!text-black" />
                 <div>
-                  <h3 className="font-semibold text-black">Expert Support</h3>
-                  <p className="text-sm text-black">Technical assistance</p>
+                  <h3 className="font-semibold text-black dark:!text-black">Expert Support</h3>
+                  <p className="text-sm text-black dark:!text-black">Technical assistance</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Truck className="h-8 w-8 text-black" />
+                <Truck className="h-8 w-8 text-black dark:!text-black" />
                 <div>
-                  <h3 className="font-semibold text-black">Fast Delivery</h3>
-                  <p className="text-sm text-black">Kenya-wide shipping</p>
+                  <h3 className="font-semibold text-black dark:!text-black">Fast Delivery</h3>
+                  <p className="text-sm text-black dark:!text-black">Kenya-wide shipping</p>
                 </div>
               </div>
             </div>
@@ -80,12 +80,12 @@ export default function Hero() {
               />
               <div className="mt-6 grid grid-cols-2 gap-4 text-center">
                 <div className="bg-black/10 rounded-lg p-4">
-                  <h4 className="text-2xl font-bold text-black">500+</h4>
-                  <p className="text-sm text-black">Products Available</p>
+                  <h4 className="text-2xl font-bold text-black dark:!text-black">500+</h4>
+                  <p className="text-sm text-black dark:!text-black">Products Available</p>
                 </div>
                 <div className="bg-black/10 rounded-lg p-4">
-                  <h4 className="text-2xl font-bold text-black">15+</h4>
-                  <p className="text-sm text-black">Years Experience</p>
+                  <h4 className="text-2xl font-bold text-black dark:!text-black">15+</h4>
+                  <p className="text-sm text-black dark:!text-black">Years Experience</p>
                 </div>
               </div>
             </div>

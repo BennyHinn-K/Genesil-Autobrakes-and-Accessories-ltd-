@@ -78,57 +78,43 @@ class MpesaService {
   }
 
   async initiateSTKPush(request: STKPushRequest): Promise<STKPushResponse> {
-    try {
-      const accessToken = await this.getAccessToken()
-      const timestamp = this.generateTimestamp()
-      const password = this.generatePassword()
+    const accessToken = await this.getAccessToken()
+    const timestamp = this.generateTimestamp()
+    const password = this.generatePassword()
 
-      // Validate phone number format
-      let phoneNumber = request.phoneNumber.replace(/\D/g, "")
-      if (phoneNumber.startsWith("0")) {
-        phoneNumber = "254" + phoneNumber.substring(1)
-      } else if (!phoneNumber.startsWith("254")) {
-        phoneNumber = "254" + phoneNumber
-      }
-
-      // Validate phone number length
-      if (phoneNumber.length !== 12) {
-        throw new Error("Invalid phone number format")
-      }
-
-      const stkPushData = {
-        BusinessShortCode: this.config.businessShortCode,
-        Password: password,
-        Timestamp: timestamp,
-        TransactionType: "CustomerPayBillOnline",
-        Amount: Math.round(request.amount),
-        PartyA: phoneNumber,
-        PartyB: this.config.businessShortCode,
-        PhoneNumber: phoneNumber,
-        CallBackURL: this.config.callbackUrl,
-        AccountReference: request.accountReference,
-        TransactionDesc: request.transactionDesc,
-      }
-
-      const response = await fetch(`${this.baseUrl}/mpesa/stkpush/v1/processrequest`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(stkPushData),
-      })
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-
-      const data = await response.json()
-      return data
-    } catch (error) {
-      console.error("STK Push error:", error)
-      throw error
+    // Format phone number to 254XXXXXXXXX
+    let phoneNumber = request.phoneNumber.replace(/\D/g, "")
+    if (phoneNumber.startsWith("0")) {
+      phoneNumber = "254" + phoneNumber.substring(1)
+    } else if (!phoneNumber.startsWith("254")) {
+      phoneNumber = "254" + phoneNumber
     }
+
+    const stkPushData = {
+      BusinessShortCode: this.config.businessShortCode,
+      Password: password,
+      Timestamp: timestamp,
+      TransactionType: "CustomerPayBillOnline",
+      Amount: Math.round(request.amount),
+      PartyA: phoneNumber,
+      PartyB: this.config.businessShortCode,
+      PhoneNumber: phoneNumber,
+      CallBackURL: this.config.callbackUrl,
+      AccountReference: request.accountReference,
+      TransactionDesc: request.transactionDesc,
+    }
+
+    const response = await fetch(`${this.baseUrl}/mpesa/stkpush/v1/processrequest`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(stkPushData),
+    })
+
+    const data = await response.json()
+    return data
   }
 
   async querySTKPushStatus(checkoutRequestId: string): Promise<any> {
